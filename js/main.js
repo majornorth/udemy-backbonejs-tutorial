@@ -52,12 +52,12 @@ var NewVehicleView = Backbone.View.extend({
         this.bus = options.bus;
     },
 
-    onAddNewVehicle: function(){
+    onAddNewVehicle: function(event){
         var NewVehicleRegistration = $('#new-vehicle-registration').val();
         var newHonda = new Vehicle({ registrationNumber: NewVehicleRegistration});
         hondas.add(newHonda);
-        debugger;
         this.bus.trigger("addRegisteredVehicle", newHonda);
+        event.preventDefault();
     },
 
     render: function(){
